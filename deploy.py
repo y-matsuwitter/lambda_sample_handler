@@ -2,10 +2,12 @@
 from __future__ import print_function
 import boto3
 
-lmabda_client = boto3.client('lambda')
+lambda_client = boto3.client('lambda')
+code_pipeline = boto3.client('codepipeline')
 
 def lambda_handler(event, context):
     print(event)
+    job_id = event['CodePipeline.job']['id']
     job = event["CodePipeline.job"]["data"]
     target_lambda = job["actionConfiguration"]["configuration"]["UserParameters"]
     artifact = job["inputArtifacts"][0]
@@ -16,4 +18,5 @@ def lambda_handler(event, context):
         S3Key=s3Location["objectKey"],
         Publish=True
     )
+    code_pipeline.put_job_success_result(jobId=job_id)
     return response
