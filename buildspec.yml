@@ -1,0 +1,17 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - pip install -t . -r requirements.txt
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - zip -r lambda_sample_handler.zip *
+artifacts:
+  type: zip
+  files:
+    - lambda_sample_handler.zip
+  discard-paths: yes

@@ -1,5 +1,6 @@
-from __future__ import print_function
+#!-*-coding:utf-8-*-
+import requests
 
 def lambda_handler(event, hoge):
-    print("Hello world")
-    return event["key"]
+    response = requests.get("https://gunosy.com")
+    return response.status_code
