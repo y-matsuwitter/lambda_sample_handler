@@ -9,9 +9,9 @@ phases:
       - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - zip -r lambda_sample_handler.zip *
+      - echo Nothing to do in the build phase
 artifacts:
   type: zip
   files:
-    - lambda_sample_handler.zip
+    - **/*
   discard-paths: yes
