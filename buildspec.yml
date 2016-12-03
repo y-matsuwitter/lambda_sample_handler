@@ -9,7 +9,7 @@ phases:
       - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - echo Nothing to do in the build phase
+      - echo Nothing to do in the build phase...
 artifacts:
   type: zip
   files:
