@@ -14,4 +14,4 @@ artifacts:
   type: zip
   files:
     - "**/*"
-  discard-paths: yes
+  discard-paths: no
